@@ -8,9 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+    
+        HStack {
+            Image("apple")
+                .resizable()
+                .frame(minWidth: 70, idealWidth: 100, maxWidth: 120, minHeight: 140, idealHeight: 200, maxHeight: 240)
+                .scaledToFit()
+                .border(.black)
+            
+            Image("bell")
+                .resizable()
+                .frame(minWidth: 70, idealWidth: 100, maxWidth: 120, minHeight: 140, idealHeight: 200, maxHeight: 240)
+                .scaledToFit()
+                .border(.black)
+            
+            Image("cherry")
+                .resizable()
+                .frame(minWidth: 70, idealWidth: 100, maxWidth: 120, minHeight: 140, idealHeight: 200, maxHeight: 240)
+                .scaledToFit()
+                .border(.black)
+        }
     }
 }
 
