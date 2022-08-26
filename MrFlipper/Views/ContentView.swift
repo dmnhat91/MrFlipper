@@ -52,22 +52,17 @@ struct ContentView: View {
         
         if cardIndex != nil {
             
-            //reset card rotation (as rotation increases each flip)
-            if cards[cardIndex!].rotation == 360 {
-                cards[cardIndex!].rotation = 0
-            }
-            
-            //animation flipping effect
-            for i in 1...60 {
-                withAnimation(Animation.linear(duration: 0.3)) {
-                    cards[cardIndex!].rotation += 3 //3*60 = 180 degrees
+            //only flip the card up - user does not allow to flip down
+            if !cards[cardIndex!].isFlipped {
+                //reset card rotation (as rotation increases each flip)
+                if cards[cardIndex!].rotation == 360 {
+                    cards[cardIndex!].rotation = 0
                 }
                 
-                if i == 30 {//at 90 degrees
-                    cards[cardIndex!].isFlipped.toggle()
-                }
+                performCardFlipAnimation(cardIndex: cardIndex)
+                
+                cards[cardIndex!].isFlipped = true
             }
-            
         }
     }
     
@@ -75,7 +70,17 @@ struct ContentView: View {
         cards.firstIndex(where: {$0 == card})
     }
     
-
+    //animation flipping effect
+    func performCardFlipAnimation(cardIndex: Int?) {
+        for _ in 1...60 {
+            withAnimation(Animation.linear(duration: 0.3)) {
+                cards[cardIndex!].rotation += 3 //3*60 = 180 degrees
+            }
+        }
+    }
+    
+    //MARK: - CARD MATCH LOGICS
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

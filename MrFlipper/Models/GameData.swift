@@ -24,8 +24,6 @@ func generateCards() -> [Card]{
         let cardOne = Card(imageName: cardNames[i])
         let cardTwo = Card(imageName: cardNames[i])
         
-        print(cardOne)
-        
         // add them to the array
         generatedCards += [cardOne, cardTwo]
     }
