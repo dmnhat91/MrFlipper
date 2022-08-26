@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BC33473628B6322E00C567BF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC33473528B6322E00C567BF /* CardView.swift */; };
+		BC33473928B7BE3000C567BF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC33473828B7BE3000C567BF /* Card.swift */; };
 		BC43993D28B5073A008BB5AF /* MrFlipperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC43993C28B5073A008BB5AF /* MrFlipperApp.swift */; };
 		BC43993F28B5073A008BB5AF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC43993E28B5073A008BB5AF /* ContentView.swift */; };
 		BC43994128B5073B008BB5AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC43994028B5073B008BB5AF /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 
 /* Begin PBXFileReference section */
 		BC33473528B6322E00C567BF /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		BC33473828B7BE3000C567BF /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		BC43993928B5073A008BB5AF /* MrFlipper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MrFlipper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC43993C28B5073A008BB5AF /* MrFlipperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MrFlipperApp.swift; sourceTree = "<group>"; };
 		BC43993E28B5073A008BB5AF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -43,6 +45,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		BC33473728B6338500C567BF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BC33473828B7BE3000C567BF /* Card.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		BC43993028B50739008BB5AF = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +72,7 @@
 		BC43993B28B5073A008BB5AF /* MrFlipper */ = {
 			isa = PBXGroup;
 			children = (
+				BC33473728B6338500C567BF /* Models */,
 				BC33473228B6320700C567BF /* Views */,
 				BC43993C28B5073A008BB5AF /* MrFlipperApp.swift */,
 				BC43994028B5073B008BB5AF /* Assets.xcassets */,
@@ -151,6 +162,7 @@
 				BC43993F28B5073A008BB5AF /* ContentView.swift in Sources */,
 				BC33473628B6322E00C567BF /* CardView.swift in Sources */,
 				BC43993D28B5073A008BB5AF /* MrFlipperApp.swift in Sources */,
+				BC33473928B7BE3000C567BF /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

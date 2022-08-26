@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct CardView: View {
-    let cardImageName: String
+    let card: Card
     
     var body: some View {
-        Image(cardImageName)
+        Image(card.imageName)
             .resizable()
             .frame(minWidth: 70, idealWidth: 100, maxWidth: 120, minHeight: 140, idealHeight: 200, maxHeight: 240)
             .scaledToFit()
@@ -21,7 +21,7 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(cardImageName: "apple")
+        CardView(card: Card(imageName: "apple"))
             .previewLayout(.sizeThatFits)
     }
 }

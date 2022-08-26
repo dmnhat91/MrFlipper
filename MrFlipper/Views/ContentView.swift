@@ -9,16 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     
-    let cards = ["apple", "bell", "cherry", "clover"]
+    let cards = [Card(imageName: "apple"), Card(imageName: "bell"), Card(imageName: "cherry"), Card(imageName: "clover")]
     
     var body: some View {
     
         HStack {
-            ForEach(cards, id:\.self){ cardName in
-                CardView(cardImageName: cardName)
+            ForEach(cards){ card in
+                CardView(card: card)
             }
 
-        }
+        }.padding([.leading, .trailing], 5)
     }
 }
 
