@@ -19,8 +19,8 @@ struct ContentView: View {
             ]
         }
     
-    var firstFlipCard: Card? = nil
-    var secondFlipCard: Card? = nil
+    @State var firstFlipCardIndex: Int? = nil
+    @State var secondFlipCardIndex: Int? = nil
     
     //MARK: - MAIN LOGIC
     var body: some View {
@@ -57,6 +57,18 @@ struct ContentView: View {
             //only flip the card up - user does not allow to flip down
             if !cards[cardIndex!].isFlipped {
                 flipCard(cardIndex: cardIndex)
+                
+                if firstFlipCardIndex == nil {
+                    firstFlipCardIndex = cardIndex
+                    
+                } else if secondFlipCardIndex == nil {
+                    secondFlipCardIndex = cardIndex
+                    
+                    //match check logics
+                    // ???: add logic here
+                    checkMatch()
+                    
+                }
             }
         }
     }
@@ -86,7 +98,35 @@ struct ContentView: View {
     }
     
     //MARK: - CARD MATCH LOGICS
+    func checkMatch() {
+        if cards[firstFlipCardIndex!].imageName == cards[secondFlipCardIndex!].imageName {
+            
+            print("Matched")
+            
+            resetFlippedCardIndex()
+            
+            //Make card disappear
+            // ???: add logic here
+        } else
+        {
+            //Add unmatch logics heare
+            // ???: add logic here
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+                //unflip the card
+                flipCard(cardIndex: firstFlipCardIndex)
+                flipCard(cardIndex: secondFlipCardIndex)
+                
+                resetFlippedCardIndex()
+            }
+        }
+    }
     
+    func resetFlippedCardIndex(){
+        //reset card index
+        firstFlipCardIndex = nil
+        secondFlipCardIndex = nil
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
