@@ -19,6 +19,9 @@ struct ContentView: View {
             ]
         }
     
+    var firstFlipCard: Card? = nil
+    var secondFlipCard: Card? = nil
+    
     //MARK: - MAIN LOGIC
     var body: some View {
         VStack
@@ -30,7 +33,7 @@ struct ContentView: View {
                         CardView(card: card)
                             .rotation3DEffect(.degrees(card.rotation), axis: (x: 0, y: 1, z: 0))
                             .onTapGesture {
-                                flipCard(card)
+                                performFlipCardProcess(card)
                             }
                     }
                 }
@@ -46,24 +49,27 @@ struct ContentView: View {
     }
     
     //MARK: - FLIP FUNCTION
-    func flipCard(_ card: Card) {
+    func performFlipCardProcess(_ card: Card) {
         //get index of the actual card of the card array
         let cardIndex = index(of: card)
         
         if cardIndex != nil {
-            
             //only flip the card up - user does not allow to flip down
             if !cards[cardIndex!].isFlipped {
-                //reset card rotation (as rotation increases each flip)
-                if cards[cardIndex!].rotation == 360 {
-                    cards[cardIndex!].rotation = 0
-                }
-                
-                performCardFlipAnimation(cardIndex: cardIndex)
-                
-                cards[cardIndex!].isFlipped = true
+                flipCard(cardIndex: cardIndex)
             }
         }
+    }
+    
+    func flipCard(cardIndex: Int?) {
+        //reset card rotation (as rotation increases each flip)
+        if cards[cardIndex!].rotation == 360 {
+            cards[cardIndex!].rotation = 0
+        }
+        
+        performCardFlipAnimation(cardIndex: cardIndex)
+        
+        cards[cardIndex!].isFlipped.toggle()
     }
     
     func index(of card: Card) -> Int? {
