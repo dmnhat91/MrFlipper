@@ -27,11 +27,7 @@ struct ContentView: View {
                     ForEach(cards){ card in
                         CardView(card: card)
                             .onTapGesture {
-                                let cardIndex = cards.firstIndex(where: {$0 == card})
-                                
-                                if cardIndex != nil {
-                                    cards[cardIndex!].isFlipped = true
-                                }
+                                flipCard(card)
                             }
                     }
                 }
@@ -44,6 +40,25 @@ struct ContentView: View {
             }
         } //end VStack
         
+    }
+    
+    func flipCard(_ card: Card) {
+        let cardIndex = index(of: card)
+        
+        if cardIndex != nil {
+            
+            let isCardFlipped = cards[cardIndex!].isFlipped
+            
+            if isCardFlipped {
+                cards[cardIndex!].isFlipped = false
+            } else {
+                cards[cardIndex!].isFlipped = true
+            }
+        }
+    }
+    
+    func index(of card: Card) -> Int? {
+        cards.firstIndex(where: {$0 == card})
     }
 }
 
