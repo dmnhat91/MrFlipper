@@ -17,8 +17,8 @@ func generateCards() -> [Card]{
     // declare an empty array
     var generatedCards = [Card]()
     
-    // generate 2 pairs of cards
-    for i in 0...1 {
+    // generate 4 pairs of cards
+    for i in 0...3 {
         
         // create two new card objects
         let cardOne = Card(imageName: cardNames[i])
