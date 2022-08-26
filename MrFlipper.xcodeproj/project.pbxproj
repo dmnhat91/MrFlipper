@@ -13,6 +13,7 @@
 		BC43993F28B5073A008BB5AF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC43993E28B5073A008BB5AF /* ContentView.swift */; };
 		BC43994128B5073B008BB5AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC43994028B5073B008BB5AF /* Assets.xcassets */; };
 		BC43994428B5073B008BB5AF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC43994328B5073B008BB5AF /* Preview Assets.xcassets */; };
+		BCEAD38528B8FEFB008FE4B9 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEAD38428B8FEFB008FE4B9 /* GameData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		BC43993E28B5073A008BB5AF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BC43994028B5073B008BB5AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC43994328B5073B008BB5AF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BCEAD38428B8FEFB008FE4B9 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				BC33473828B7BE3000C567BF /* Card.swift */,
+				BCEAD38428B8FEFB008FE4B9 /* GameData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC43993F28B5073A008BB5AF /* ContentView.swift in Sources */,
+				BCEAD38528B8FEFB008FE4B9 /* GameData.swift in Sources */,
 				BC33473628B6322E00C567BF /* CardView.swift in Sources */,
 				BC43993D28B5073A008BB5AF /* MrFlipperApp.swift in Sources */,
 				BC33473928B7BE3000C567BF /* Card.swift in Sources */,

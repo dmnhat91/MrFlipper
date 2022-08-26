@@ -11,7 +11,7 @@ struct ContentView: View {
     
     let adaptiveStat = 80.0
     
-    @State var cards = [Card(imageName: "apple"), Card(imageName: "bell"), Card(imageName: "cherry"), Card(imageName: "clover")]
+    @State var cards : [Card]
     
     private var columns: [GridItem] {
             return [
@@ -19,6 +19,7 @@ struct ContentView: View {
             ]
         }
     
+    //MARK: - MAIN LOGIC
     var body: some View {
         VStack
         {
@@ -73,10 +74,12 @@ struct ContentView: View {
     func index(of card: Card) -> Int? {
         cards.firstIndex(where: {$0 == card})
     }
+    
+
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(cards: gameCards)
     }
 }
