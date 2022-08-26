@@ -42,8 +42,8 @@ struct ContentView: View {
             }
             .padding([.leading, .trailing], 5)
             
-            Button("Shuffle") {
-                cards.shuffle()
+            Button("Reset") {
+                resetCards()
             }
         } //end VStack
         
@@ -103,9 +103,7 @@ struct ContentView: View {
         if cards[firstFlipCardIndex!].imageName == cards[secondFlipCardIndex!].imageName {
             
             //if cards are matched
-            
-            //Make card disappear
-            // ???: add logic here
+            // ???: Add matched logics here
             
             //fade cards
             fadeCard(cardIndex: firstFlipCardIndex)
@@ -116,10 +114,10 @@ struct ContentView: View {
         {
             //if cards are not matched
             
-            //Add unmatch logics heare
+            //Add unmatch logics here - minus point
             // ???: add logic here
             
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.35) {
                 //unflip the card
                 flipCard(cardIndex: firstFlipCardIndex)
                 flipCard(cardIndex: secondFlipCardIndex)
@@ -135,11 +133,23 @@ struct ContentView: View {
         secondFlipCardIndex = nil
     }
     
+    // card fading effecy
     func fadeCard(cardIndex: Int?){
         withAnimation(.linear(duration: 1)){
             cards[cardIndex!].opacity = 0
         }
+    }
+    
+    // MARK: - Reset cards logics
+    func resetCards() {
+        resetFlippedCardIndex()
         
+        //reset all cards back to original state
+        for i in 0...cards.count-1 {
+            cards[i].isFlipped = false
+            cards[i].rotation = 0
+            cards[i].opacity = 1
+        }
     }
 }
 
