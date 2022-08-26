@@ -11,7 +11,8 @@ struct CardView: View {
     let card: Card
     
     var body: some View {
-        Image(card.imageName)
+        
+        Image(card.isFlipped ? card.imageName : "back")
             .resizable()
             .frame(minWidth: 70, idealWidth: 100, maxWidth: 120, minHeight: 140, idealHeight: 200, maxHeight: 240)
             .scaledToFit()

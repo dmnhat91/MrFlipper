@@ -8,7 +8,8 @@
 import Foundation
 
 
-struct Card: Identifiable {
+struct Card: Identifiable, Equatable {
     var id = UUID()
+    var isFlipped: Bool = false
     var imageName: String
 }
