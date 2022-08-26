@@ -31,6 +31,7 @@ struct ContentView: View {
                     //MARK: - CARD DISPLAY ON SCREEN
                     ForEach(cards){ card in
                         CardView(card: card)
+                            .opacity(card.opacity)
                             .rotation3DEffect(.degrees(card.rotation), axis: (x: 0, y: 1, z: 0))
                             .onTapGesture {
                                 performFlipCardProcess(card)
@@ -101,14 +102,20 @@ struct ContentView: View {
     func checkMatch() {
         if cards[firstFlipCardIndex!].imageName == cards[secondFlipCardIndex!].imageName {
             
-            print("Matched")
-            
-            resetFlippedCardIndex()
+            //if cards are matched
             
             //Make card disappear
             // ???: add logic here
+            
+            //fade cards
+            fadeCard(cardIndex: firstFlipCardIndex)
+            fadeCard(cardIndex: secondFlipCardIndex)
+            
+            resetFlippedCardIndex()
         } else
         {
+            //if cards are not matched
+            
             //Add unmatch logics heare
             // ???: add logic here
             
@@ -126,6 +133,13 @@ struct ContentView: View {
         //reset card index
         firstFlipCardIndex = nil
         secondFlipCardIndex = nil
+    }
+    
+    func fadeCard(cardIndex: Int?){
+        withAnimation(.linear(duration: 1)){
+            cards[cardIndex!].opacity = 0
+        }
+        
     }
 }
 

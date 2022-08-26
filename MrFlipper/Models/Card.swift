@@ -14,4 +14,5 @@ struct Card: Identifiable, Equatable {
     var imageName: String
     
     var rotation: Double = 0 //for animating flipping effect
+    var opacity: Double = 1 //for animating fadding effect
 }
