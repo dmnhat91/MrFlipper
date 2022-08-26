@@ -19,8 +19,6 @@ struct ContentView: View {
             ]
         }
     
-    @State var rotation: Double = 0
-    
     var body: some View {
         VStack
         {
@@ -29,6 +27,7 @@ struct ContentView: View {
                     //MARK: - CARD DISPLAY ON SCREEN
                     ForEach(cards){ card in
                         CardView(card: card)
+                            .rotation3DEffect(.degrees(card.rotation), axis: (x: 0, y: 1, z: 0))
                             .onTapGesture {
                                 flipCard(card)
                             }
@@ -51,7 +50,17 @@ struct ContentView: View {
         let cardIndex = index(of: card)
         
         if cardIndex != nil {
-            cards[cardIndex!].isFlipped.toggle()
+            
+            //animation flipping effect
+            for i in 1...60 {
+                withAnimation(Animation.linear(duration: 0.3)) {
+                    cards[cardIndex!].rotation += 3 //3*60 = 180 degrees
+                }
+                
+                if i == 30 {//at 90 degrees
+                    cards[cardIndex!].isFlipped.toggle()
+                }
+            }
         }
     }
     
