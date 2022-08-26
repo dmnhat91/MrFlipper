@@ -9,18 +9,26 @@ import SwiftUI
 
 struct ContentView: View {
     
-    let cards = [Card(imageName: "apple"), Card(imageName: "bell"), Card(imageName: "cherry"), Card(imageName: "clover")]
+    @State var cards = [Card(imageName: "apple"), Card(imageName: "bell"), Card(imageName: "cherry"), Card(imageName: "clover")]
     
     var body: some View {
-    
-        HStack {
-            LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]){
-                ForEach(cards){ card in
-                    CardView(card: card)
+        VStack
+        {
+            HStack {
+                LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]){
+                    ForEach(cards){ card in
+                        CardView(card: card)
+                    }
                 }
-            }
 
-        }.padding([.leading, .trailing], 5)
+            }
+            .padding([.leading, .trailing], 5)
+            
+            Button("Shuffle") {
+                cards.shuffle()
+            }
+        } //end VStack
+        
     }
 }
 
