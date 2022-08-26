@@ -51,6 +51,11 @@ struct ContentView: View {
         
         if cardIndex != nil {
             
+            //reset card rotation (as rotation increases each flip)
+            if cards[cardIndex!].rotation == 360 {
+                cards[cardIndex!].rotation = 0
+            }
+            
             //animation flipping effect
             for i in 1...60 {
                 withAnimation(Animation.linear(duration: 0.3)) {
@@ -61,6 +66,7 @@ struct ContentView: View {
                     cards[cardIndex!].isFlipped.toggle()
                 }
             }
+            
         }
     }
     
