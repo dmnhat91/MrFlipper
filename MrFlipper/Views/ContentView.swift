@@ -14,8 +14,10 @@ struct ContentView: View {
     var body: some View {
     
         HStack {
-            ForEach(cards){ card in
-                CardView(card: card)
+            LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]){
+                ForEach(cards){ card in
+                    CardView(card: card)
+                }
             }
 
         }.padding([.leading, .trailing], 5)
