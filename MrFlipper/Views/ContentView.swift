@@ -19,11 +19,14 @@ struct ContentView: View {
             ]
         }
     
+    @State var rotation: Double = 0
+    
     var body: some View {
         VStack
         {
             HStack {
                 LazyVGrid(columns: columns){
+                    //MARK: - CARD DISPLAY ON SCREEN
                     ForEach(cards){ card in
                         CardView(card: card)
                             .onTapGesture {
@@ -42,18 +45,13 @@ struct ContentView: View {
         
     }
     
+    //MARK: - FLIP FUNCTION
     func flipCard(_ card: Card) {
+        //get index of the actual card of the card array
         let cardIndex = index(of: card)
         
         if cardIndex != nil {
-            
-            let isCardFlipped = cards[cardIndex!].isFlipped
-            
-            if isCardFlipped {
-                cards[cardIndex!].isFlipped = false
-            } else {
-                cards[cardIndex!].isFlipped = true
-            }
+            cards[cardIndex!].isFlipped.toggle()
         }
     }
     
