@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct WinModalView: View {
-    let score = 100
+    let score : Int
     
     var body: some View {
         ZStack{
             Color("LightTheme")
+                .opacity(0.5)
                 .edgesIgnoringSafeArea(.all)
             VStack{
                 Text("YOU WON")
@@ -36,8 +37,7 @@ struct WinModalView: View {
                         .bold()
                         .multilineTextAlignment(.center)
                     Button {
-//                        self.showGameOverModal = false
-//                        self.coins = 100
+                        //???: implement logics to disappear modal here
                     } label: {
                         Text("Play again".uppercased())
                             .foregroundColor(Color("RedDark"))
@@ -64,6 +64,6 @@ struct WinModalView: View {
 
 struct WinModalView_Previews: PreviewProvider {
     static var previews: some View {
-        WinModalView()
+        WinModalView(score: 100)
     }
 }

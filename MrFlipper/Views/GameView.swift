@@ -32,50 +32,66 @@ struct GameView: View {
     @State var noOfUnmatches = 0 //to track if reaching free unmatches yet
     @State var noOfMatches = 0 //to identify win condition
     
+    //to display win/lose modal after users win/lose
+    @State private var showWinModal = false
+    @State private var showGameOverModal = false
+    
+    
     //MARK: - MAIN LOGIC
     var body: some View {
-        VStack
-        {
-            //MARK: - GAME INFO AND SCORE
-            HStack {
-                Text("Username: \(userName)")
-                    .modifier(gameTextStyle())
-                Spacer()
-            }
-            
-            HStack {
-                Text("Timer: \(totalTime)s")
-                Spacer()
-                Text("Score: \(score)")
-            }.modifier(gameTextStyle())
-            
-            HStack {
-                Text("Number of free moves left: \(noOfFreeUnmatches - noOfUnmatches)")
-            }.modifier(gameTextStyle())
-            
-            //MARK: - CARDS DISPLAY
-            HStack {
-                LazyVGrid(columns: columns){
-                    //MARK: - CARD DISPLAY ON SCREEN
-                    ForEach(cards){ card in
-                        CardView(card: card)
-                            .opacity(card.opacity)
-                            .rotation3DEffect(.degrees(card.rotation), axis: (x: 0, y: 1, z: 0))
-                            .onTapGesture {
-                                performFlipCardProcess(card)
-                            }
-                    }
+        
+        ZStack {
+            VStack
+            {
+                //MARK: - GAME INFO AND SCORE
+                HStack {
+                    Text("Username: \(userName)")
+                        .modifier(gameTextStyle())
+                    Spacer()
                 }
+                
+                HStack {
+                    Text("Timer: \(totalTime)s")
+                    Spacer()
+                    Text("Score: \(score)")
+                }.modifier(gameTextStyle())
+                
+                HStack {
+                    Text("Number of free moves left: \(noOfFreeUnmatches - noOfUnmatches)")
+                }.modifier(gameTextStyle())
+                
+                //MARK: - CARDS DISPLAY
+                HStack {
+                    LazyVGrid(columns: columns){
+                        //MARK: - CARD DISPLAY ON SCREEN
+                        ForEach(cards){ card in
+                            CardView(card: card)
+                                .opacity(card.opacity)
+                                .rotation3DEffect(.degrees(card.rotation), axis: (x: 0, y: 1, z: 0))
+                                .onTapGesture {
+                                    performFlipCardProcess(card)
+                                }
+                        }
+                    }
 
-            }
-            .padding([.leading, .trailing], 5)
+                }
+                .padding([.leading, .trailing], 5)
+                
+                Button("Reset") {
+                    resetCards()
+                }
+                
+                Spacer()
+            } //end VStack
+            .blur(radius:  showWinModal ? 5 : 0 , opaque: false)
             
-            Button("Reset") {
-                resetCards()
+            if showWinModal {
+                WinModalView(score: score)
             }
             
-            Spacer()
-        } //end VStack
+        } //end main ZStack
+        
+        
         
     }
     
@@ -132,12 +148,18 @@ struct GameView: View {
             
             //if cards are matched
             
+            //increment match no
+            noOfMatches += 1
+            
             //add points
             addScore(value: pointAdd)
             
             //fade cards
             fadeCard(cardIndex: firstFlipCardIndex)
             fadeCard(cardIndex: secondFlipCardIndex)
+            
+            //check win
+            checkWin()
             
             resetFlippedCardIndex()
         } else
@@ -215,6 +237,12 @@ struct GameView: View {
         noOfMatches = 0
     }
 
+    //MARK: - CHECK WIN
+    func checkWin() {
+        if noOfMatches == cards.count/2 {
+            showWinModal = true
+        }
+    }
 }
 
 struct GameView_Previews: PreviewProvider {
