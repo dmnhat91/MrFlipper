@@ -9,7 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     
+    let userName = "dmnhat91"
     let adaptiveStat = 80.0
+    
+    let pointMinus = 3 //unmatched will deduct 3 pnts
+    let pointAdd = 10 //match will add 10 pnts
+    let noOfFreeUnmatches = 3 //number of unmatches that are not deducted points
     
     @State var cards : [Card]
     
@@ -22,10 +27,29 @@ struct ContentView: View {
     @State var firstFlipCardIndex: Int? = nil
     @State var secondFlipCardIndex: Int? = nil
     
+    @State var score = 0;
+    @State var timeLeft = 120;
+    
+    @State var noOfUnmatches = 0
+    
+    
     //MARK: - MAIN LOGIC
     var body: some View {
         VStack
         {
+            //MARK: - USER INFO AND SCORE
+            HStack {
+                Text("Username: \(userName)").padding()
+                Spacer()
+            }
+            
+            HStack {
+                Text("Timer: \(timeLeft)s").padding()
+                Spacer()
+                Text("Score: \(score)").padding()
+            }
+            
+            //MARK: - CARDS DISPLAY
             HStack {
                 LazyVGrid(columns: columns){
                     //MARK: - CARD DISPLAY ON SCREEN
@@ -45,6 +69,8 @@ struct ContentView: View {
             Button("Reset") {
                 resetCards()
             }
+            
+            Spacer()
         } //end VStack
         
     }
@@ -65,10 +91,8 @@ struct ContentView: View {
                 } else if secondFlipCardIndex == nil {
                     secondFlipCardIndex = cardIndex
                     
-                    //match check logics
-                    // ???: add logic here
+                    // match check
                     checkMatch()
-                    
                 }
             }
         }
@@ -103,7 +127,9 @@ struct ContentView: View {
         if cards[firstFlipCardIndex!].imageName == cards[secondFlipCardIndex!].imageName {
             
             //if cards are matched
-            // ???: Add matched logics here
+            
+            //add points
+            addScore(value: pointAdd)
             
             //fade cards
             fadeCard(cardIndex: firstFlipCardIndex)
@@ -114,9 +140,16 @@ struct ContentView: View {
         {
             //if cards are not matched
             
-            //Add unmatch logics here - minus point
-            // ???: add logic here
+            //increment noOfUnmatch capped to noOfFreeUnmatches
+            if noOfUnmatches < noOfFreeUnmatches {
+                noOfUnmatches += 1
+            } else { //noOfUnmatches >= noOfFreeUnmatches
+                //minus point if unmatched
+                subtractScore(value: pointMinus)
+            }
             
+            
+            // unflip cards after delaying some time
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.35) {
                 //unflip the card
                 flipCard(cardIndex: firstFlipCardIndex)
@@ -149,6 +182,18 @@ struct ContentView: View {
             cards[i].isFlipped = false
             cards[i].rotation = 0
             cards[i].opacity = 1
+        }
+    }
+    
+    // MARK: - SCORE MODIFICATION FUNC
+    func addScore(value: Int) {
+        score += value
+    }
+    
+    func subtractScore(value: Int) {
+        score -= value
+        if score < 0 {
+            score = 0
         }
     }
 }
