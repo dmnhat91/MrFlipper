@@ -12,7 +12,9 @@ struct MrFlipperApp: App {
     var body: some Scene {
         WindowGroup {
 //            ContentView()
-            GameView(cards: gameCards)
+            
+            let gameConfig = GameConfig(cards: gameCards)
+            GameView(gameConfig: gameConfig)
         }
     }
 }

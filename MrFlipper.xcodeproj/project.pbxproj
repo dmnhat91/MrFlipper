@@ -12,6 +12,7 @@
 		BC1ED36528B9D82B00617144 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED36428B9D82B00617144 /* PlaySound.swift */; };
 		BC1ED36728B9D87500617144 /* WinModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED36628B9D87500617144 /* WinModalView.swift */; };
 		BC1ED36928B9EC5600617144 /* GameConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED36828B9EC5600617144 /* GameConfig.swift */; };
+		BC1ED36B28B9F92400617144 /* PlayConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED36A28B9F92400617144 /* PlayConfig.swift */; };
 		BC33473628B6322E00C567BF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC33473528B6322E00C567BF /* CardView.swift */; };
 		BC33473928B7BE3000C567BF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC33473828B7BE3000C567BF /* Card.swift */; };
 		BC43993D28B5073A008BB5AF /* MrFlipperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC43993C28B5073A008BB5AF /* MrFlipperApp.swift */; };
@@ -27,6 +28,7 @@
 		BC1ED36428B9D82B00617144 /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
 		BC1ED36628B9D87500617144 /* WinModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinModalView.swift; sourceTree = "<group>"; };
 		BC1ED36828B9EC5600617144 /* GameConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConfig.swift; sourceTree = "<group>"; };
+		BC1ED36A28B9F92400617144 /* PlayConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayConfig.swift; sourceTree = "<group>"; };
 		BC33473528B6322E00C567BF /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		BC33473828B7BE3000C567BF /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		BC43993928B5073A008BB5AF /* MrFlipper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MrFlipper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +76,7 @@
 				BC33473828B7BE3000C567BF /* Card.swift */,
 				BCEAD38428B8FEFB008FE4B9 /* GameData.swift */,
 				BC1ED36828B9EC5600617144 /* GameConfig.swift */,
+				BC1ED36A28B9F92400617144 /* PlayConfig.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				BC1ED36328B9D66700617144 /* Modifiers.swift in Sources */,
 				BC33473628B6322E00C567BF /* CardView.swift in Sources */,
 				BC43993D28B5073A008BB5AF /* MrFlipperApp.swift in Sources */,
+				BC1ED36B28B9F92400617144 /* PlayConfig.swift in Sources */,
 				BC1ED36028B9D1CF00617144 /* GameView.swift in Sources */,
 				BC33473928B7BE3000C567BF /* Card.swift in Sources */,
 			);
