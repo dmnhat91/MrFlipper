@@ -27,10 +27,10 @@ struct GameView: View {
     @State var secondFlipCardIndex: Int? = nil
     
     @State var score = 0;
-    @State var timeLeft = 120;
+    let totalTime = 120; //to identify lose condition
     
-    @State var noOfUnmatches = 0
-    
+    @State var noOfUnmatches = 0 //to track if reaching free unmatches yet
+    @State var noOfMatches = 0 //to identify win condition
     
     //MARK: - MAIN LOGIC
     var body: some View {
@@ -38,15 +38,20 @@ struct GameView: View {
         {
             //MARK: - USER INFO AND SCORE
             HStack {
-                Text("Username: \(userName)").padding()
+                Text("Username: \(userName)")
+                    .modifier(gameTextStyle())
                 Spacer()
             }
             
             HStack {
-                Text("Timer: \(timeLeft)s").padding()
+                Text("Timer: \(totalTime)s")
                 Spacer()
-                Text("Score: \(score)").padding()
-            }
+                Text("Score: \(score)")
+            }.modifier(gameTextStyle())
+            
+            HStack {
+                Text("Number of free moves left: \(noOfFreeUnmatches - noOfUnmatches)")
+            }.modifier(gameTextStyle())
             
             //MARK: - CARDS DISPLAY
             HStack {
@@ -174,7 +179,7 @@ struct GameView: View {
     
     // MARK: - Reset cards logics
     func resetCards() {
-        resetFlippedCardIndex()
+        resetGameStats()
         
         //reset all cards back to original state
         for i in 0...cards.count-1 {
@@ -194,6 +199,20 @@ struct GameView: View {
         if score < 0 {
             score = 0
         }
+    }
+    
+    func resetGameStats() {
+        resetFlippedCardIndex()
+        
+        //reset timer
+        // ???: add code here
+        
+        //reset score
+        score = 0
+        
+        //reset others stats
+        noOfUnmatches = 0
+        noOfMatches = 0
     }
 
 }
