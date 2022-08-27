@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct WinModalView: View {
-    let score : Int
+    @Binding var playConfig : PlayConfig
+    @Binding var gameConfig : GameConfig
     
     var body: some View {
         ZStack{
@@ -31,13 +32,15 @@ struct WinModalView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(maxHeight: 150)
-                    Text("YOUR SCORE: \(score)")
+                    Text("YOUR SCORE: \(playConfig.score)")
                         .font(.system(.body, design: .rounded))
                         .foregroundColor(Color("RedDark"))
                         .bold()
                         .multilineTextAlignment(.center)
                     Button {
-                        //???: implement logics to disappear modal here
+                        playConfig.showWinModal = false
+                        playConfig.reset()
+                        gameConfig.resetCards()
                     } label: {
                         Text("Play again".uppercased())
                             .foregroundColor(Color("RedDark"))
@@ -63,7 +66,10 @@ struct WinModalView: View {
 }
 
 struct WinModalView_Previews: PreviewProvider {
+    @State static var playConfig = PlayConfig()
+    @State static var gameConfig = GameConfig(cards: gameCards)
+    
     static var previews: some View {
-        WinModalView(score: 100)
+        WinModalView(playConfig: $playConfig, gameConfig: $gameConfig)
     }
 }

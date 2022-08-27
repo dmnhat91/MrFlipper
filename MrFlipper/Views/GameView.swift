@@ -70,7 +70,7 @@ struct GameView: View {
             .blur(radius: playConfig.showWinModal ? 5 : 0 , opaque: false)
             
             if playConfig.showWinModal {
-                WinModalView(score: playConfig.score)
+                WinModalView(playConfig: $playConfig, gameConfig: $gameConfig)
             }
             
         } //end main ZStack
@@ -178,12 +178,7 @@ struct GameView: View {
     func resetCards() {
         resetGameStats()
         
-        //reset all cards back to original state
-        for i in 0...gameConfig.cards.count-1 {
-            gameConfig.cards[i].isFlipped = false
-            gameConfig.cards[i].rotation = 0
-            gameConfig.cards[i].opacity = 1
-        }
+        gameConfig.resetCards()
     }
     
     // MARK: - SCORE MODIFICATION FUNC
