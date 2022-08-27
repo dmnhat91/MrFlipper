@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC1ED36028B9D1CF00617144 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED35F28B9D1CF00617144 /* GameView.swift */; };
 		BC33473628B6322E00C567BF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC33473528B6322E00C567BF /* CardView.swift */; };
 		BC33473928B7BE3000C567BF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC33473828B7BE3000C567BF /* Card.swift */; };
 		BC43993D28B5073A008BB5AF /* MrFlipperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC43993C28B5073A008BB5AF /* MrFlipperApp.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC1ED35F28B9D1CF00617144 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		BC33473528B6322E00C567BF /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		BC33473828B7BE3000C567BF /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		BC43993928B5073A008BB5AF /* MrFlipper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MrFlipper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +45,7 @@
 			children = (
 				BC43993E28B5073A008BB5AF /* ContentView.swift */,
 				BC33473528B6322E00C567BF /* CardView.swift */,
+				BC1ED35F28B9D1CF00617144 /* GameView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 				BCEAD38528B8FEFB008FE4B9 /* GameData.swift in Sources */,
 				BC33473628B6322E00C567BF /* CardView.swift in Sources */,
 				BC43993D28B5073A008BB5AF /* MrFlipperApp.swift in Sources */,
+				BC1ED36028B9D1CF00617144 /* GameView.swift in Sources */,
 				BC33473928B7BE3000C567BF /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

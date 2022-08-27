@@ -11,7 +11,8 @@ import SwiftUI
 struct MrFlipperApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(cards: gameCards)
+//            ContentView()
+            GameView(cards: gameCards)
         }
     }
 }
