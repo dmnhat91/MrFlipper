@@ -36,7 +36,7 @@ struct GameView: View {
     var body: some View {
         VStack
         {
-            //MARK: - USER INFO AND SCORE
+            //MARK: - GAME INFO AND SCORE
             HStack {
                 Text("Username: \(userName)")
                     .modifier(gameTextStyle())
