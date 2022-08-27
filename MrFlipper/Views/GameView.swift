@@ -12,6 +12,8 @@ struct GameView: View {
     let pointMinus = 3 //unmatched will deduct 3 pnts
     let pointAdd = 10 //match will add 10 pnts
     
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
     private var columns: [GridItem] {
             return [
                 .init(.adaptive(minimum: gameConfig.adaptiveStat))
@@ -35,7 +37,15 @@ struct GameView: View {
                 }
                 
                 HStack {
-                    Text("Timer: \(gameConfig.totalTime)s")
+                    Text("Timer: \(playConfig.timeRemaining)s")
+                        .onReceive(timer) { _ in
+                            if playConfig.timeRemaining > 0 {
+                                playConfig.timeRemaining -= 1
+                            } else { //when timeRemaning = 0
+                                //player loses
+                                performLoseAction()
+                            }
+                        }
                     Spacer()
                     Text("Score: \(playConfig.score)")
                 }.modifier(gameTextStyle())
@@ -62,7 +72,7 @@ struct GameView: View {
                 .padding([.leading, .trailing], 5)
                 
                 Button("Reset") {
-                    resetCards()
+                    resetFullGame()
                 }
                 
                 Spacer()
@@ -70,7 +80,9 @@ struct GameView: View {
             .blur(radius: playConfig.showWinModal ? 5 : 0 , opaque: false)
             
             if playConfig.showWinModal {
-                WinModalView(playConfig: $playConfig, gameConfig: $gameConfig)
+                ResultModalView(displayText: "YOU WON", isWin: true, playConfig: $playConfig, gameConfig: $gameConfig)
+            } else if playConfig.showLoseModal {
+                ResultModalView(displayText: "YOU LOST. TIME'S UP!!", isWin: false, playConfig: $playConfig, gameConfig: $gameConfig)
             }
             
         } //end main ZStack
@@ -175,7 +187,7 @@ struct GameView: View {
     }
     
     // MARK: - Reset cards logics
-    func resetCards() {
+    func resetFullGame() {
         resetGameStats()
         
         gameConfig.resetCards()
@@ -205,6 +217,11 @@ struct GameView: View {
         if playConfig.noOfMatches == gameConfig.cards.count/2 {
             playConfig.showWinModal = true
         }
+    }
+    
+    //MARK: - LOSE ACTION
+    func performLoseAction() {
+        playConfig.showLoseModal = true
     }
 }
 

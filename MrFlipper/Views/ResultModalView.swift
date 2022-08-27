@@ -7,7 +7,10 @@
 
 import SwiftUI
 
-struct WinModalView: View {
+struct ResultModalView: View {
+    let displayText: String
+    let isWin: Bool
+    
     @Binding var playConfig : PlayConfig
     @Binding var gameConfig : GameConfig
     
@@ -17,7 +20,7 @@ struct WinModalView: View {
                 .opacity(0.5)
                 .edgesIgnoringSafeArea(.all)
             VStack{
-                Text("YOU WON")
+                Text("\(displayText)")
                     .font(.system(.title, design: .rounded))
                     .fontWeight(.heavy)
                     .foregroundColor(Color.white)
@@ -38,7 +41,11 @@ struct WinModalView: View {
                         .bold()
                         .multilineTextAlignment(.center)
                     Button {
-                        playConfig.showWinModal = false
+                        if isWin {
+                            playConfig.showWinModal = false
+                        } else {
+                            playConfig.showLoseModal = false
+                        }
                         playConfig.reset()
                         gameConfig.resetCards()
                     } label: {
@@ -70,6 +77,6 @@ struct WinModalView_Previews: PreviewProvider {
     @State static var gameConfig = GameConfig(cards: gameCards)
     
     static var previews: some View {
-        WinModalView(playConfig: $playConfig, gameConfig: $gameConfig)
+        ResultModalView(displayText: "YOU WON", isWin: true, playConfig: $playConfig, gameConfig: $gameConfig)
     }
 }

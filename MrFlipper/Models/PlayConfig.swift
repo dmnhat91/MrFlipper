@@ -19,13 +19,15 @@ struct PlayConfig {
     
     //to display win/lose modal after users win/lose
     var showWinModal = false
-    var showGameOverModal = false
+    var showLoseModal = false
+    
+    var timeRemaining = Constants.totalTime
     
     mutating func reset() {
         resetFlippedCardIndex()
         
-        //reset timer
-        // ???: add code here
+        //reset time
+        timeRemaining = Constants.totalTime
         
         //reset score
         score = 0
