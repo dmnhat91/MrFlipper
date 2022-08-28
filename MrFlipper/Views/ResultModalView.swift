@@ -16,7 +16,7 @@ struct ResultModalView: View {
     
     var body: some View {
         ZStack{
-            Color("LightTheme")
+            ColorConstants.themeColor
                 .opacity(0.5)
                 .edgesIgnoringSafeArea(.all)
             VStack{
@@ -26,7 +26,7 @@ struct ResultModalView: View {
                     .foregroundColor(Color.white)
                     .padding()
                     .frame(minWidth: 280, idealWidth: 280, maxWidth: 320)
-                    .background(Color("RedDark"))
+                    .background(ColorConstants.darkTextColorTheme)
                 
                 Spacer()
                 
@@ -37,7 +37,7 @@ struct ResultModalView: View {
                         .frame(maxHeight: 150)
                     Text("YOUR SCORE: \(playConfig.score)")
                         .font(.system(.body, design: .rounded))
-                        .foregroundColor(Color("RedDark"))
+                        .foregroundColor(ColorConstants.darkTextColorTheme)
                         .bold()
                         .multilineTextAlignment(.center)
                     Button {
@@ -50,14 +50,14 @@ struct ResultModalView: View {
                         gameConfig.resetCards()
                     } label: {
                         Text("Play again".uppercased())
-                            .foregroundColor(Color("RedDark"))
+                            .foregroundColor(ColorConstants.darkTextColorTheme)
                     }
                     .padding(.vertical,10)
                     .padding(.horizontal, 20)
                     .background(
                         Capsule()
                             .strokeBorder(lineWidth: 2)
-                            .foregroundColor(Color("RedDark"))
+                            .foregroundColor(ColorConstants.darkTextColorTheme)
                     )
 
                 }
@@ -65,8 +65,8 @@ struct ResultModalView: View {
                 Spacer()
             }
             .frame(minWidth: 280, idealWidth: 280, maxWidth: 320, minHeight: 280, idealHeight: 300, maxHeight: 350, alignment: .center)
-            .background(Color("LightTheme"))
-            .border(Color("RedDark"), width: 5)
+            .background(ColorConstants.themeColor)
+            .border(ColorConstants.darkTextColorTheme, width: 5)
             .cornerRadius(10)
         }
     }

@@ -27,7 +27,7 @@ struct GameView: View {
     var body: some View {
         
         ZStack {
-            Color("LightTheme")
+            ColorConstants.themeColor
                 .opacity(0.5)
                 .edgesIgnoringSafeArea(.all)
             

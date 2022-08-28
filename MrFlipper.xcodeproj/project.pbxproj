@@ -14,6 +14,9 @@
 		BC1ED36928B9EC5600617144 /* GameConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED36828B9EC5600617144 /* GameConfig.swift */; };
 		BC1ED36B28B9F92400617144 /* PlayConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED36A28B9F92400617144 /* PlayConfig.swift */; };
 		BC1ED36F28BA084F00617144 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED36E28BA084F00617144 /* Constants.swift */; };
+		BC1ED37128BB01D700617144 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED37028BB01D700617144 /* MenuView.swift */; };
+		BC1ED37328BB021900617144 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED37228BB021900617144 /* MenuItemView.swift */; };
+		BC1ED37528BB031800617144 /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED37428BB031800617144 /* ColorConstants.swift */; };
 		BC33473628B6322E00C567BF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC33473528B6322E00C567BF /* CardView.swift */; };
 		BC33473928B7BE3000C567BF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC33473828B7BE3000C567BF /* Card.swift */; };
 		BC43993D28B5073A008BB5AF /* MrFlipperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC43993C28B5073A008BB5AF /* MrFlipperApp.swift */; };
@@ -31,6 +34,9 @@
 		BC1ED36828B9EC5600617144 /* GameConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConfig.swift; sourceTree = "<group>"; };
 		BC1ED36A28B9F92400617144 /* PlayConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayConfig.swift; sourceTree = "<group>"; };
 		BC1ED36E28BA084F00617144 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BC1ED37028BB01D700617144 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		BC1ED37228BB021900617144 /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
+		BC1ED37428BB031800617144 /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
 		BC33473528B6322E00C567BF /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		BC33473828B7BE3000C567BF /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		BC43993928B5073A008BB5AF /* MrFlipper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MrFlipper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +74,8 @@
 				BC33473528B6322E00C567BF /* CardView.swift */,
 				BC1ED35F28B9D1CF00617144 /* GameView.swift */,
 				BC1ED36628B9D87500617144 /* ResultModalView.swift */,
+				BC1ED37028BB01D700617144 /* MenuView.swift */,
+				BC1ED37228BB021900617144 /* MenuItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -80,6 +88,7 @@
 				BC1ED36828B9EC5600617144 /* GameConfig.swift */,
 				BC1ED36A28B9F92400617144 /* PlayConfig.swift */,
 				BC1ED36E28BA084F00617144 /* Constants.swift */,
+				BC1ED37428BB031800617144 /* ColorConstants.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -194,10 +203,13 @@
 				BC43993F28B5073A008BB5AF /* ContentView.swift in Sources */,
 				BC1ED36928B9EC5600617144 /* GameConfig.swift in Sources */,
 				BC1ED36728B9D87500617144 /* ResultModalView.swift in Sources */,
+				BC1ED37528BB031800617144 /* ColorConstants.swift in Sources */,
 				BC1ED36528B9D82B00617144 /* PlaySound.swift in Sources */,
+				BC1ED37328BB021900617144 /* MenuItemView.swift in Sources */,
 				BCEAD38528B8FEFB008FE4B9 /* GameData.swift in Sources */,
 				BC1ED36328B9D66700617144 /* Modifiers.swift in Sources */,
 				BC33473628B6322E00C567BF /* CardView.swift in Sources */,
+				BC1ED37128BB01D700617144 /* MenuView.swift in Sources */,
 				BC43993D28B5073A008BB5AF /* MrFlipperApp.swift in Sources */,
 				BC1ED36B28B9F92400617144 /* PlayConfig.swift in Sources */,
 				BC1ED36028B9D1CF00617144 /* GameView.swift in Sources */,
