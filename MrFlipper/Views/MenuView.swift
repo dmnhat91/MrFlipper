@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct MenuView: View {
-    @State var gameConfig: GameConfig
-    
     var body: some View {
         NavigationView {
             ZStack{
@@ -38,22 +36,18 @@ struct MenuView: View {
                         }
                         
                         NavigationLink {
-                            // ???: to config game config here
-//                            GameView(gameConfig: $gameConfig)
+                            GameView(totalTime: Constants.totalTimeEasyMode, playConfig: PlayConfig(timeRemaining: Constants.totalTimeEasyMode))
                         } label: {
                             MenuItemView(text: "Easy")
-                        }.simultaneousGesture(TapGesture().onEnded {
-//                            gameConfig = GameConfig()
-//                            gameConfig.generateCards(noOfPairs: Constants.cardPairEasyMode)
-                        })
+                        }
                         
                         NavigationLink {
-                            // ???: to config game config here
+                            GameView(totalTime: Constants.totalTimeMediumMode, playConfig: PlayConfig(timeRemaining: Constants.totalTimeMediumMode))
                         } label: {
                             MenuItemView(text: "Medium")
                         }
                         NavigationLink {
-                            // ???: to config game config here
+                            GameView(totalTime: Constants.totalTimeHardMode, playConfig: PlayConfig(timeRemaining: Constants.totalTimeHardMode))
                         } label: {
                             MenuItemView(text: "Hard")
                         }
@@ -100,7 +94,7 @@ struct MenuView: View {
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        let gameConfig = GameConfig(cards: gameCards)
-        MenuView(gameConfig: gameConfig)
+        MenuView()
     }
 }
+    
