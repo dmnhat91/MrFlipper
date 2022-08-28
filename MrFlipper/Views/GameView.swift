@@ -63,21 +63,23 @@ struct GameView: View {
                 }.modifier(gameTextStyle())
                 
                 //MARK: - CARDS DISPLAY
-                HStack {
-                    LazyVGrid(columns: columns){
-                        //MARK: - CARD DISPLAY ON SCREEN
-                        ForEach(gameConfig.cards){ card in
-                            CardView(card: card)
-                                .opacity(card.opacity)
-                                .rotation3DEffect(.degrees(card.rotation), axis: (x: 0, y: 1, z: 0))
-                                .onTapGesture {
-                                    performFlipCardProcess(card)
-                                }
+                ScrollView {
+                    HStack {
+                        LazyVGrid(columns: columns){
+                            //MARK: - CARD DISPLAY ON SCREEN
+                            ForEach(gameConfig.cards){ card in
+                                CardView(card: card)
+                                    .opacity(card.opacity)
+                                    .rotation3DEffect(.degrees(card.rotation), axis: (x: 0, y: 1, z: 0))
+                                    .onTapGesture {
+                                        performFlipCardProcess(card)
+                                    }
+                            }
                         }
-                    }
 
+                    }
+                    .padding([.leading, .trailing], 5)
                 }
-                .padding([.leading, .trailing], 5)
                 
                 Button("Reset") {
                     resetFullGame()
@@ -234,6 +236,7 @@ struct GameView: View {
 }
 
 struct GameView_Previews: PreviewProvider {
+    
     static var previews: some View {
         let gameConfig = GameConfig(cards: gameCards)
         GameView(gameConfig: gameConfig)

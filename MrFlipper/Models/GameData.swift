@@ -7,7 +7,7 @@
 
 import Foundation
 
-let cardNames = ["apple", "bell", "cherry", "clover"]
+let cardNames = ["apple", "bell", "cherry", "clover", "bar", "melon", "money", "orange", "heart", "grape", "diamond", "horseshoe"]
 
 var gameCards = generateCards()
 
@@ -17,8 +17,8 @@ func generateCards() -> [Card]{
     // declare an empty array
     var generatedCards = [Card]()
     
-    // generate 4 pairs of cards
-    for i in 0...3 {
+    // generate 10 pairs of cards
+    for i in 0...9 {
         
         // create two new card objects
         let cardOne = Card(imageName: cardNames[i])

@@ -8,62 +8,101 @@
 import SwiftUI
 
 struct MenuView: View {
+    @State var gameConfig: GameConfig
+    
     var body: some View {
-        ZStack{
-            ColorConstants.themeColor
-                .opacity(0.5)
-                .edgesIgnoringSafeArea(.all)
-            
-            VStack {
-                Image("app-logo-transparent")
-                        .offset(y: -100)
-                        .padding(.bottom, -200)
+        NavigationView {
+            ZStack{
+                ColorConstants.themeColor
+                    .opacity(0.5)
+                    .edgesIgnoringSafeArea(.all)
                 
-                HStack {
-                    Text("Game mode")
-                        .bold()
-                        .modifier(gameTextStyle())
-                    
-                    Spacer()
-                    
-                    Image(systemName: "person.fill.badge.plus")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .foregroundColor(ColorConstants.darkTextColorTheme)
-                        .padding(.trailing)
+                ScrollView {
+                    VStack {
+                        Image("app-logo-transparent")
+                                .offset(y: -100)
+                                .padding(.bottom, -200)
+                        
+                        HStack {
+                            Text("Game mode")
+                                .bold()
+                                .modifier(gameTextStyle())
+                            
+                            Spacer()
+                            
+                            Image(systemName: "person.fill.badge.plus")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                                .foregroundColor(ColorConstants.darkTextColorTheme)
+                                .padding(.trailing)
+                        }
+                        
+                        NavigationLink {
+                            // ???: to config game config here
+//                            GameView(gameConfig: $gameConfig)
+                        } label: {
+                            MenuItemView(text: "Easy")
+                        }.simultaneousGesture(TapGesture().onEnded {
+//                            gameConfig = GameConfig()
+//                            gameConfig.generateCards(noOfPairs: Constants.cardPairEasyMode)
+                        })
+                        
+                        NavigationLink {
+                            // ???: to config game config here
+                            GameView(gameConfig: GameConfig(cards: gameCards))
+                        } label: {
+                            MenuItemView(text: "Medium")
+                        }
+                        NavigationLink {
+                            // ???: to config game config here
+                            GameView(gameConfig: GameConfig(cards: gameCards))
+                        } label: {
+                            MenuItemView(text: "Hard")
+                        }
+                        
+                        HStack {
+                            Text("Instructions")
+                                .bold()
+                                .modifier(gameTextStyle())
+                            
+                            Spacer()
+                        }
+                        
+                        NavigationLink {
+                            // ???: to config game config here
+                            // ???: switch to how to play screen
+                        } label: {
+                            MenuItemView(text: "How to play")
+                        }
+                        
+                        
+                        HStack {
+                            Text("Leaderboard")
+                                .bold()
+                                .modifier(gameTextStyle())
+                            
+                            Spacer()
+                        }
+                        
+                        NavigationLink {
+                            // ???: to config game config here
+                            // ???: switch to leaderboard screen
+                        } label: {
+                            MenuItemView(text: "Leaderboard")
+                        }
+                        
+                        
+                        Spacer()
+                    } //VStack
                 }
-                
-                MenuItemView(text: "Easy")
-                MenuItemView(text: "Medium")
-                MenuItemView(text: "Hard")
-                
-                HStack {
-                    Text("Instructions")
-                        .bold()
-                        .modifier(gameTextStyle())
-                    
-                    Spacer()
-                }
-                
-                MenuItemView(text: "How to play")
-                
-                HStack {
-                    Text("Leaderboard")
-                        .bold()
-                        .modifier(gameTextStyle())
-                    
-                    Spacer()
-                }
-                
-                MenuItemView(text: "Leaderboard")
-                
-            }
-        }
+            } //ZStack
+        } //NavigationView
     }
 }
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView()
+        let gameConfig = GameConfig(cards: gameCards)
+        MenuView(gameConfig: gameConfig)
     }
 }
