@@ -13,4 +13,6 @@ struct Constants {
     static let totalTimeEasyMode = 90
     static let totalTimeMediumMode = 60
     static let totalTimeHardMode = 30
+    
+    static let maxNoOfUsers = 3
 }

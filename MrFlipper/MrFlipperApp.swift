@@ -18,7 +18,7 @@ struct MrFlipperApp: App {
 //            let playConfig = PlayConfig(timeRemaining: Constants.totalTime)
 //            GameView(totalTime: Constants.totalTime, playConfig: playConfig)
             
-            MenuView()
+            UserView()
         }
     }
 }

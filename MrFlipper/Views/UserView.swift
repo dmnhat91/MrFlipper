@@ -25,8 +25,7 @@ struct UserView: View {
                     
                     HStack {
                         NavigationLink {
-                            //???: User login view
-                            UsernameInputView(isUserLogin: true, usernameInput: $userName, isLoginSuccess: $isLoginSuccess)
+                            UserLoginView(usernameInput: $userName, isLoginSuccess: $isLoginSuccess)
                             
                         } label: {
                             VStack {
@@ -44,7 +43,7 @@ struct UserView: View {
                         Spacer()
                         
                         NavigationLink {
-                            //???: user registration view
+                            UserRegisterView()
                         } label: {
                             VStack {
                                 Image(systemName: "person.fill.badge.plus")

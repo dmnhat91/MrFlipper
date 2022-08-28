@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BC0A551128BB451700AC63CF /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0A551028BB451700AC63CF /* UserView.swift */; };
-		BC0A551328BB64DB00AC63CF /* UsernameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0A551228BB64DB00AC63CF /* UsernameInputView.swift */; };
+		BC0A551328BB64DB00AC63CF /* UserLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0A551228BB64DB00AC63CF /* UserLoginView.swift */; };
 		BC1ED36028B9D1CF00617144 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED35F28B9D1CF00617144 /* GameView.swift */; };
 		BC1ED36328B9D66700617144 /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED36228B9D66700617144 /* Modifiers.swift */; };
 		BC1ED36528B9D82B00617144 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED36428B9D82B00617144 /* PlaySound.swift */; };
@@ -25,12 +25,13 @@
 		BC43993F28B5073A008BB5AF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC43993E28B5073A008BB5AF /* ContentView.swift */; };
 		BC43994128B5073B008BB5AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC43994028B5073B008BB5AF /* Assets.xcassets */; };
 		BC43994428B5073B008BB5AF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC43994328B5073B008BB5AF /* Preview Assets.xcassets */; };
+		BCB0A72028BB84110084ACFC /* UserRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB0A71F28BB84110084ACFC /* UserRegisterView.swift */; };
 		BCEAD38528B8FEFB008FE4B9 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEAD38428B8FEFB008FE4B9 /* GameData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BC0A551028BB451700AC63CF /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
-		BC0A551228BB64DB00AC63CF /* UsernameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameInputView.swift; sourceTree = "<group>"; };
+		BC0A551228BB64DB00AC63CF /* UserLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginView.swift; sourceTree = "<group>"; };
 		BC1ED35F28B9D1CF00617144 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		BC1ED36228B9D66700617144 /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		BC1ED36428B9D82B00617144 /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
@@ -48,6 +49,7 @@
 		BC43993E28B5073A008BB5AF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BC43994028B5073B008BB5AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC43994328B5073B008BB5AF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BCB0A71F28BB84110084ACFC /* UserRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterView.swift; sourceTree = "<group>"; };
 		BCEAD38428B8FEFB008FE4B9 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,7 +83,8 @@
 				BC1ED37028BB01D700617144 /* MenuView.swift */,
 				BC1ED37228BB021900617144 /* MenuItemView.swift */,
 				BC0A551028BB451700AC63CF /* UserView.swift */,
-				BC0A551228BB64DB00AC63CF /* UsernameInputView.swift */,
+				BC0A551228BB64DB00AC63CF /* UserLoginView.swift */,
+				BCB0A71F28BB84110084ACFC /* UserRegisterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -209,9 +212,10 @@
 				BC43993F28B5073A008BB5AF /* ContentView.swift in Sources */,
 				BC1ED36928B9EC5600617144 /* GameConfig.swift in Sources */,
 				BC1ED36728B9D87500617144 /* ResultModalView.swift in Sources */,
-				BC0A551328BB64DB00AC63CF /* UsernameInputView.swift in Sources */,
+				BC0A551328BB64DB00AC63CF /* UserLoginView.swift in Sources */,
 				BC0A551128BB451700AC63CF /* UserView.swift in Sources */,
 				BC1ED37528BB031800617144 /* ColorConstants.swift in Sources */,
+				BCB0A72028BB84110084ACFC /* UserRegisterView.swift in Sources */,
 				BC1ED36528B9D82B00617144 /* PlaySound.swift in Sources */,
 				BC1ED37328BB021900617144 /* MenuItemView.swift in Sources */,
 				BCEAD38528B8FEFB008FE4B9 /* GameData.swift in Sources */,
