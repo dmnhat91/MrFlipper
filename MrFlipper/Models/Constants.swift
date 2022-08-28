@@ -21,5 +21,10 @@ struct Constants {
     static let pointsHardModeAdd = 30
     static let pointsHardModeDeduct = 20
     
+    static let bronzeBadgeName = "bronze"
+    static let silverBadgeName = "silver"
+    static let goldBadgeName = "gold"
+    static let diamondBadgeName = "diamond"
+    
     static let maxNoOfUsers = 3
 }

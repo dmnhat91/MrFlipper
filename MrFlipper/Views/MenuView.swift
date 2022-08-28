@@ -72,8 +72,7 @@ struct MenuView: View {
                         }
                         
                         NavigationLink {
-                            // ???: to config game config here
-                            // ???: switch to leaderboard screen
+                            LeaderboardView()
                         } label: {
                             MenuItemView(text: "Leaderboard")
                         }

@@ -226,14 +226,43 @@ struct GameView: View {
 
     //MARK: - CHECK WIN
     func checkWin() {
+        //number of cards/2 = total pairs of cards
         if playConfig.noOfMatches == gameConfig.cards.count/2 {
             playConfig.showWinModal = true
+            
+            updateUserResult()
         }
     }
     
     //MARK: - LOSE ACTION
     func performLoseAction() {
         playConfig.showLoseModal = true
+    }
+    
+    //MARK: - UPDATE USER HIGHSCORE AND BADGE
+    func updateUserResult() {
+        var usersData = getUserDict()
+        var currentUser = usersData[userName]
+        if currentUser != nil {
+            if currentUser!.highScore < playConfig.score {
+                currentUser!.highScore = playConfig.score
+                currentUser!.badge = calculateBadge(score: playConfig.score)
+            }
+            usersData[userName] = currentUser
+            saveUserDict(value: usersData)
+        }
+    }
+    
+    func calculateBadge(score: Int) -> String {
+        if score >= 50 && score < 100 {
+            return Constants.bronzeBadgeName
+        } else if score >= 100 && score < 200 {
+            return Constants.silverBadgeName
+        } else if score >= 200 && score < 290 {
+            return Constants.goldBadgeName
+        } else {
+            return Constants.diamondBadgeName
+        }
     }
 }
 
