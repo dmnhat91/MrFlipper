@@ -12,9 +12,9 @@ import Foundation
 struct GameConfig {
     var userName = "dmnhat91"
     var adaptiveStat = 60.0
-    var cards : [Card]
+    var cards = gameCards
     
-    var totalTime = 120; //to identify lose condition
+//    var totalTime = 120; //to identify lose condition
     
     var noOfFreeUnmatches = 5 //number of unmatches that are not deducted points
     

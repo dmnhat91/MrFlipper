@@ -21,13 +21,13 @@ struct PlayConfig {
     var showWinModal = false
     var showLoseModal = false
     
-    var timeRemaining = Constants.totalTime
+    var timeRemaining: Int
     
-    mutating func reset() {
+    mutating func reset(resetTime: Int) {
         resetFlippedCardIndex()
         
         //reset time
-        timeRemaining = Constants.totalTime
+        timeRemaining = resetTime
         
         //reset score
         score = 0

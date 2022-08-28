@@ -49,13 +49,11 @@ struct MenuView: View {
                         
                         NavigationLink {
                             // ???: to config game config here
-                            GameView(gameConfig: GameConfig(cards: gameCards))
                         } label: {
                             MenuItemView(text: "Medium")
                         }
                         NavigationLink {
                             // ???: to config game config here
-                            GameView(gameConfig: GameConfig(cards: gameCards))
                         } label: {
                             MenuItemView(text: "Hard")
                         }

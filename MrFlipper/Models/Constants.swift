@@ -8,6 +8,6 @@
 import Foundation
 
 struct Constants {
-    static let totalTime = 10
+    static let totalTime = 30
     
 }

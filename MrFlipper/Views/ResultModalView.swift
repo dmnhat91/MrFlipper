@@ -10,6 +10,7 @@ import SwiftUI
 struct ResultModalView: View {
     let displayText: String
     let isWin: Bool
+    let totalTime: Int
     
     @Binding var playConfig : PlayConfig
     @Binding var gameConfig : GameConfig
@@ -46,7 +47,7 @@ struct ResultModalView: View {
                         } else {
                             playConfig.showLoseModal = false
                         }
-                        playConfig.reset()
+                        playConfig.reset(resetTime: totalTime)
                         gameConfig.resetCards()
                     } label: {
                         Text("Play again".uppercased())
@@ -73,10 +74,11 @@ struct ResultModalView: View {
 }
 
 struct WinModalView_Previews: PreviewProvider {
-    @State static var playConfig = PlayConfig()
+    @State static var playConfig = PlayConfig(timeRemaining: Constants.totalTime)
     @State static var gameConfig = GameConfig(cards: gameCards)
     
     static var previews: some View {
-        ResultModalView(displayText: "YOU WON", isWin: true, playConfig: $playConfig, gameConfig: $gameConfig)
+        let totalTime = Constants.totalTime
+        ResultModalView(displayText: "YOU WON", isWin: true, totalTime: totalTime, playConfig: $playConfig, gameConfig: $gameConfig)
     }
 }

@@ -13,8 +13,10 @@ struct MrFlipperApp: App {
         WindowGroup {
 //            ContentView()
             
-            let gameConfig = GameConfig(cards: gameCards)
-            GameView(gameConfig: gameConfig)
+//            let gameConfig = GameConfig(cards: gameCards)
+//            GameView(gameConfig: gameConfig)
+            let playConfig = PlayConfig(timeRemaining: Constants.totalTime)
+            GameView(totalTime: Constants.totalTime, playConfig: playConfig)
         }
     }
 }

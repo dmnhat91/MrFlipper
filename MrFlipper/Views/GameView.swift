@@ -9,8 +9,10 @@ import SwiftUI
 
 struct GameView: View {
     //MARK: - GAME STATIC DATA
+    let totalTime: Int
     let pointMinus = 3 //unmatched will deduct 3 pnts
     let pointAdd = 10 //match will add 10 pnts
+    
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -20,8 +22,8 @@ struct GameView: View {
             ]
         }
     
-    @State var gameConfig: GameConfig
-    @State var playConfig = PlayConfig()
+    @State var gameConfig = GameConfig()
+    @State var playConfig : PlayConfig
     
     //MARK: - MAIN LOGIC
     var body: some View {
@@ -90,9 +92,9 @@ struct GameView: View {
             .blur(radius: playConfig.showWinModal ? 5 : 0 , opaque: false)
             
             if playConfig.showWinModal {
-                ResultModalView(displayText: "YOU WON", isWin: true, playConfig: $playConfig, gameConfig: $gameConfig)
+                ResultModalView(displayText: "YOU WON", isWin: true, totalTime: totalTime, playConfig: $playConfig, gameConfig: $gameConfig)
             } else if playConfig.showLoseModal {
-                ResultModalView(displayText: "YOU LOST. TIME'S UP!!", isWin: false, playConfig: $playConfig, gameConfig: $gameConfig)
+                ResultModalView(displayText: "YOU LOST. TIME'S UP!!", isWin: false, totalTime: totalTime, playConfig: $playConfig, gameConfig: $gameConfig)
             }
             
         } //end main ZStack
@@ -219,7 +221,7 @@ struct GameView: View {
     // ???: add code here
     
     func resetGameStats() {
-        playConfig.reset()
+        playConfig.reset(resetTime: totalTime)
     }
 
     //MARK: - CHECK WIN
@@ -238,7 +240,9 @@ struct GameView: View {
 struct GameView_Previews: PreviewProvider {
     
     static var previews: some View {
-        let gameConfig = GameConfig(cards: gameCards)
-        GameView(gameConfig: gameConfig)
+//        let gameConfig = GameConfig(cards: gameCards)
+//        GameView(gameConfig: gameConfig)
+        let playConfig = PlayConfig(timeRemaining: Constants.totalTime)
+        GameView(totalTime: Constants.totalTime, playConfig: playConfig)
     }
 }
