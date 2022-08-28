@@ -65,7 +65,7 @@ struct UserView: View {
 
                     if isLoginSuccess {
                         NavigationLink {
-                            MenuView()
+                            MenuView(userName: userName)
                         } label: {
                             MenuItemView(text: "Play game")
                         }

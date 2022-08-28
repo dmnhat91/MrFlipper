@@ -14,5 +14,12 @@ struct Constants {
     static let totalTimeMediumMode = 60
     static let totalTimeHardMode = 30
     
+    static let pointsEasyModeAdd = 10
+    static let pointsEasyModeDeduct = 3
+    static let pointsMediumModeAdd = 20
+    static let pointsMediumModeDeduct = 10
+    static let pointsHardModeAdd = 30
+    static let pointsHardModeDeduct = 20
+    
     static let maxNoOfUsers = 3
 }

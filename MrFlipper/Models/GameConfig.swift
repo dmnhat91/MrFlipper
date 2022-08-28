@@ -10,7 +10,7 @@ import Foundation
 
 // to control general game settings - belonging to whole game scope
 struct GameConfig {
-    var userName = "dmnhat91"
+//    var userName = "dmnhat91"
     var adaptiveStat = 60.0
     var cards = gameCards
     

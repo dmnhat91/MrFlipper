@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct GameView: View {
-    //MARK: - GAME STATIC DATA
+    let userName: String
     let totalTime: Int
-    let pointMinus = 3 //unmatched will deduct 3 pnts
-    let pointAdd = 10 //match will add 10 pnts
+    let pointMinus: Int //points when unmatched will deduct
+    let pointAdd: Int //points when a match will add
     
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -37,7 +37,7 @@ struct GameView: View {
             {
                 //MARK: - GAME INFO AND SCORE
                 HStack {
-                    Text("Username: \(gameConfig.userName)")
+                    Text("Username: \(userName)")
                         .bold()
                         .modifier(gameTextStyle())
                     Spacer()
@@ -243,6 +243,7 @@ struct GameView_Previews: PreviewProvider {
 //        let gameConfig = GameConfig(cards: gameCards)
 //        GameView(gameConfig: gameConfig)
         let playConfig = PlayConfig(timeRemaining: Constants.totalTime)
-        GameView(totalTime: Constants.totalTime, playConfig: playConfig)
+        
+        GameView(userName: "minhnhat", totalTime: Constants.totalTime, pointMinus: Constants.pointsEasyModeDeduct, pointAdd: Constants.pointsEasyModeAdd, playConfig: playConfig)
     }
 }

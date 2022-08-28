@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MenuView: View {
+    let userName: String
+    
     var body: some View {
 //        NavigationView {
             ZStack{
@@ -29,18 +31,18 @@ struct MenuView: View {
                         }
                         
                         NavigationLink {
-                            GameView(totalTime: Constants.totalTimeEasyMode, playConfig: PlayConfig(timeRemaining: Constants.totalTimeEasyMode))
+                            GameView(userName: userName, totalTime: Constants.totalTimeEasyMode, pointMinus: Constants.pointsEasyModeDeduct, pointAdd: Constants.pointsEasyModeAdd, playConfig: PlayConfig(timeRemaining: Constants.totalTimeEasyMode))
                         } label: {
                             MenuItemView(text: "Easy")
                         }
                         
                         NavigationLink {
-                            GameView(totalTime: Constants.totalTimeMediumMode, playConfig: PlayConfig(timeRemaining: Constants.totalTimeMediumMode))
+                            GameView(userName: userName, totalTime: Constants.totalTimeMediumMode, pointMinus: Constants.pointsMediumModeDeduct, pointAdd: Constants.pointsMediumModeAdd, playConfig: PlayConfig(timeRemaining: Constants.totalTimeMediumMode))
                         } label: {
                             MenuItemView(text: "Medium")
                         }
                         NavigationLink {
-                            GameView(totalTime: Constants.totalTimeHardMode, playConfig: PlayConfig(timeRemaining: Constants.totalTimeHardMode))
+                            GameView(userName: userName, totalTime: Constants.totalTimeHardMode, pointMinus: Constants.pointsHardModeDeduct, pointAdd: Constants.pointsHardModeAdd, playConfig: PlayConfig(timeRemaining: Constants.totalTimeHardMode))
                         } label: {
                             MenuItemView(text: "Hard")
                         }
@@ -84,7 +86,7 @@ struct MenuView: View {
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView()
+        MenuView(userName: "minhnhat")
     }
 }
     
