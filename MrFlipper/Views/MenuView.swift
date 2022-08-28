@@ -20,19 +20,12 @@ struct MenuView: View {
                         Image("app-logo-transparent")
                                 .offset(y: -100)
                                 .padding(.bottom, -200)
-                        
+                                      
                         HStack {
                             Text("Game mode")
                                 .bold()
                                 .modifier(gameTextStyle())
-                            
                             Spacer()
-                            
-                            Image(systemName: "person.fill.badge.plus")
-                                .resizable()
-                                .frame(width: 50, height: 50)
-                                .foregroundColor(ColorConstants.darkTextColorTheme)
-                                .padding(.trailing)
                         }
                         
                         NavigationLink {
@@ -82,9 +75,6 @@ struct MenuView: View {
                         } label: {
                             MenuItemView(text: "Leaderboard")
                         }
-                        
-                        
-                        Spacer()
                     } //VStack
                 }
             } //ZStack
