@@ -8,30 +8,16 @@
 import SwiftUI
 
 struct UserLoginView: View {
-//    let isUserLogin: Bool //user can login OR register
-    
     @Binding var usernameInput: String
     @Binding var isLoginSuccess: Bool
     
     @State private var username = ""
-//    @State private var isUserExisted = false
     @State private var isValidated = false
     
     @State private var usersStore: [String:Int] = [:]
     
     var body: some View {
         VStack {
-//            if isUserLogin {
-//                Text("user login".uppercased())
-//                    .bold()
-//                    .modifier(gameTextStyle())
-//                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-//            } else {
-//                Text("user registration".uppercased())
-//                    .bold()
-//                    .modifier(gameTextStyle())
-//                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-//            }
             Text("user login".uppercased())
                 .bold()
                 .modifier(gameTextStyle())
@@ -48,7 +34,6 @@ struct UserLoginView: View {
                 )
                 .onSubmit {
                     //when user press enters, perform login
-//                    validate(name: username)
                     performLogin(name: username)
                 }
                 // when user reenter - no longer validate
@@ -62,47 +47,6 @@ struct UserLoginView: View {
                 .padding(.trailing, 5)
                 .multilineTextAlignment(.center)
             } //end HStack
-            
-//            if isValidated {
-//                if isUserLogin && username != "" {
-//                    // if user login and enters unexisted user
-//                    if !isUserExisted {
-//                        //login fail logic
-//                        Text("User is not existed!!")
-//                            .bold()
-//                            .foregroundColor(.red)
-//                            .onAppear {
-//                                isLoginSuccess = false
-//
-//                                //reset
-//                                usernameInput = ""
-//                            }
-//                    } else {
-//                        //login success logic
-//                        Text("LOGIN SUCCESS")
-//                            .bold()
-//                            .foregroundColor(ColorConstants.darkTextColorTheme)
-//                            .onAppear {
-//                                isLoginSuccess = true
-//
-//                                usernameInput = username
-//                            }
-//                    }
-//                } else if !isUserLogin && username != "" {
-//                    // if user registers
-//                    if isUserExisted {
-//                        //???: register fail code here
-//                        Text("User is already existed existed!!")
-//                            .bold()
-//                            .foregroundColor(.red)
-//                    } else {
-//                        Text("REGISTER SUCCESS WITH USERNAME: \(username)")
-//                            .bold()
-//                            .foregroundColor(ColorConstants.darkTextColorTheme)
-//
-//                    }
-//                } //endif isUserLogin
-//            } //endif isValidated
             
             if isValidated {
                 if isLoginSuccess {
@@ -137,10 +81,8 @@ struct UserLoginView: View {
         if validate(name: username) {
             isLoginSuccess = true
             usernameInput = username
-//            isUserExisted = true //user existed
         } else {
             isLoginSuccess = false
-//            isUserExisted = false //user not existed
             
             //reset
             usernameInput = ""
