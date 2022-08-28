@@ -27,17 +27,23 @@ struct GameView: View {
     var body: some View {
         
         ZStack {
+            Color("LightTheme")
+                .opacity(0.5)
+                .edgesIgnoringSafeArea(.all)
+            
             VStack
             {
                 //MARK: - GAME INFO AND SCORE
                 HStack {
                     Text("Username: \(gameConfig.userName)")
+                        .bold()
                         .modifier(gameTextStyle())
                     Spacer()
                 }
                 
                 HStack {
                     Text("Timer: \(playConfig.timeRemaining)s")
+                        .bold()
                         .onReceive(timer) { _ in
                             if playConfig.timeRemaining > 0 {
                                 playConfig.timeRemaining -= 1
@@ -48,10 +54,12 @@ struct GameView: View {
                         }
                     Spacer()
                     Text("Score: \(playConfig.score)")
+                        .bold()
                 }.modifier(gameTextStyle())
                 
                 HStack {
                     Text("Number of free moves left: \(gameConfig.noOfFreeUnmatches - playConfig.noOfUnmatches)")
+                        .bold()
                 }.modifier(gameTextStyle())
                 
                 //MARK: - CARDS DISPLAY

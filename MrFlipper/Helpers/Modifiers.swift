@@ -12,5 +12,7 @@ struct gameTextStyle: ViewModifier{
         content
             .padding([.leading, .trailing])
             .padding([.top, .bottom], 5)
+            .font(.system(.body, design: .rounded))
+            .foregroundColor(Color("RedDark"))
     }
 }
