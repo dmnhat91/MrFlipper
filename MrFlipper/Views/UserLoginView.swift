@@ -14,7 +14,7 @@ struct UserLoginView: View {
     @State private var username = ""
     @State private var isValidated = false
     
-    @State private var usersStore: [String:Int] = [:]
+    @State private var usersStore: [String:User] = [:]
     
     var body: some View {
         VStack {
@@ -76,7 +76,7 @@ struct UserLoginView: View {
     }
     
     func performLogin(name: String) {
-        usersStore = UserDefaults.standard.object(forKey: "users") as? [String:Int] ?? [:]
+        usersStore = getUserDict()
         
         if validate(name: username) {
             isLoginSuccess = true

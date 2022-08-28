@@ -12,7 +12,7 @@ struct UserRegisterView: View {
     @State private var isValidated = false
     @State private var isRegisSuccess = false
     
-    @State private var usersStore: [String:Int] = [:]
+    @State private var usersStore: [String:User] = [:]
     
     var body: some View {
         VStack {
@@ -61,7 +61,7 @@ struct UserRegisterView: View {
     }
     
     func performRegistration(name: String) {
-        usersStore = UserDefaults.standard.object(forKey: "users") as? [String:Int] ?? [:]
+        usersStore = getUserDict()
 
         if !validate(name: username) { //name should NOT exist in storage before registration
             
@@ -89,9 +89,9 @@ struct UserRegisterView: View {
             usersStore[firstKey] = nil
         }
         
-        usersStore[name] = 0 //highest score default to 0
+        usersStore[name] = User(username: name) //highest score default to 0
         
-        UserDefaults.standard.set(self.usersStore, forKey: "users")
+        saveUserDict(value: usersStore)
         
         //[DEBUG]]
         print(usersStore)
