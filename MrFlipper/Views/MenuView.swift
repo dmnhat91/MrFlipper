@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MenuView: View {
     var body: some View {
-        NavigationView {
+//        NavigationView {
             ZStack{
                 ColorConstants.themeColor
                     .opacity(0.5)
@@ -78,7 +78,7 @@ struct MenuView: View {
                     } //VStack
                 }
             } //ZStack
-        } //NavigationView
+//        } //NavigationView
     }
 }
 
