@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct UserView: View {
-    @State var userName = "unknown"
+    @State var userName = ""
+    @State var isLoginSuccess = false
     
     var body: some View {
         NavigationView {
@@ -25,7 +26,7 @@ struct UserView: View {
                     HStack {
                         NavigationLink {
                             //???: User login view
-                            UsernameInputView(isUserLogin: true)
+                            UsernameInputView(isUserLogin: true, usernameInput: $userName, isLoginSuccess: $isLoginSuccess)
                             
                         } label: {
                             VStack {
@@ -62,11 +63,13 @@ struct UserView: View {
                     Text("Current User: \(userName)")
                         .bold()
                         .modifier(gameTextStyle())
-                    
-                    NavigationLink {
-                        //???: Enter logics here
-                    } label: {
-                        MenuItemView(text: "Play game")
+
+                    if isLoginSuccess {
+                        NavigationLink {
+                            //???: Enter logics here to switch to menu view
+                        } label: {
+                            MenuItemView(text: "Play game")
+                        }
                     }
                     
                     Spacer()

@@ -9,7 +9,11 @@ import SwiftUI
 
 struct UsernameInputView: View {
     let isUserLogin: Bool //user can login OR register
-    @State private var username: String = ""
+    
+    @Binding var usernameInput: String
+    @Binding var isLoginSuccess: Bool
+    
+    @State private var username = ""
     @State private var isUserExisted = false
     @State private var isValidated = false
     
@@ -56,15 +60,32 @@ struct UsernameInputView: View {
                 if isUserLogin && username != "" {
                     // if user login and enters unexisted user
                     if !isUserExisted {
+                        //login fail logic
                         Text("User is not existed!!")
                             .bold()
                             .foregroundColor(.red)
+                            .onAppear {
+                                isLoginSuccess = false
+                                
+                                //reset
+                                usernameInput = ""
+                            }
                     } else {
-                        // ???: login success code here
+                        //login success logic
+                        Text("LOGIN SUCCESS")
+                            .bold()
+                            .foregroundColor(ColorConstants.darkTextColorTheme)
+                            .onAppear {
+                                isLoginSuccess = true
+                                
+                                usernameInput = username
+                            }
                     }
                 } else if !isUserLogin && username != "" {
                     // if user registers
                     if isUserExisted {
+                        //???: register fail code here
+                        
                         Text("User is already existed existed!!")
                             .bold()
                             .foregroundColor(.red)
@@ -92,7 +113,10 @@ struct UsernameInputView: View {
 }
 
 struct UsernameInputView_Previews: PreviewProvider {
+    @State static var usernameInput = ""
+    @State static var isLoginSuccess = false
+    
     static var previews: some View {
-        UsernameInputView(isUserLogin: true).previewLayout(.sizeThatFits)
+        UsernameInputView(isUserLogin: true, usernameInput: $usernameInput, isLoginSuccess: $isLoginSuccess).previewLayout(.sizeThatFits)
     }
 }
