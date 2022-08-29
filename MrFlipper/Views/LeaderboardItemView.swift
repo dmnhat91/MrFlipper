@@ -15,13 +15,13 @@ struct LeaderboardItemView: View {
     var body: some View {
         RoundedRectangle(cornerRadius: 30)
             .fill(ColorConstants.whiteBlackColor)
-            .frame(height: 60)
+            .frame(height: 90)
             .border(.black, width: 2)
             .padding([.leading, .trailing], 5)
             .padding([.top, .bottom], 5)
             .overlay(
                 HStack {
-                    Text("User: \(username)\nScore: \(score) pnts")
+                    Text("\(username)\nScore: \(score) pnts")
                         .foregroundColor(ColorConstants.darkTextColorTheme)
                         .bold()
                         .padding(.leading, 10)
