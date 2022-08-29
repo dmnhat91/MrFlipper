@@ -14,7 +14,7 @@ struct LeaderboardItemView: View {
     
     var body: some View {
         RoundedRectangle(cornerRadius: 30)
-            .fill(.white)
+            .fill(ColorConstants.whiteBlackColor)
             .frame(height: 60)
             .border(.black, width: 2)
             .padding([.leading, .trailing], 5)

@@ -29,8 +29,7 @@ func generateCards() -> [Card]{
     }
     
     // randomize the cards within the array
-    // !!!: Uncomment this later
-//    generatedCards.shuffle()
+    generatedCards.shuffle()
     
     // return the array
     return generatedCards

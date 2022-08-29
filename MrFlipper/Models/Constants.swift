@@ -26,5 +26,5 @@ struct Constants {
     static let goldBadgeName = "gold"
     static let diamondBadgeName = "diamond"
     
-    static let maxNoOfUsers = 3
+    static let maxNoOfUsers = 10
 }
