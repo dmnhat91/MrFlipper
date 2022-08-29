@@ -131,6 +131,8 @@ struct GameView: View {
         
         performCardFlipAnimation(cardIndex: cardIndex)
         
+        playSound(sound: "card-flip-sound", type: "mp3")
+        
         gameConfig.cards[cardIndex!].isFlipped.toggle()
     }
     
@@ -156,6 +158,9 @@ struct GameView: View {
             //increment match no
             playConfig.noOfMatches += 1
             
+            //play sound
+            playSound(sound: "card-match-music", type: "mp3")
+            
             //add points
             addScore(value: pointAdd)
             
@@ -179,6 +184,8 @@ struct GameView: View {
                 subtractScore(value: pointMinus)
             }
             
+            //play sound
+            playSound(sound: "card-unmatch-music", type: "mp3")
             
             // unflip cards after delaying some time
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.35) {
@@ -228,6 +235,8 @@ struct GameView: View {
     func checkWin() {
         //number of cards/2 = total pairs of cards
         if playConfig.noOfMatches == gameConfig.cards.count/2 {
+            playSound(sound: "game-win-music", type: "mp3")
+            
             playConfig.showWinModal = true
             
             updateUserResult()
@@ -236,6 +245,8 @@ struct GameView: View {
     
     //MARK: - LOSE ACTION
     func performLoseAction() {
+        playSound(sound: "game-lose-music", type: "mp3")
+        
         playConfig.showLoseModal = true
     }
     

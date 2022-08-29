@@ -79,6 +79,9 @@ struct MenuView: View {
                     } //VStack
                 }
             } //ZStack
+            .onAppear {
+                playSound(sound: "bg-music", type: "mp3")
+            }
 //        } //NavigationView
     }
 }
