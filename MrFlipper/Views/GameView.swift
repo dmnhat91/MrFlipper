@@ -284,8 +284,10 @@ struct GameView: View {
             return Constants.silverBadgeName
         } else if score >= 200 && score < 290 {
             return Constants.goldBadgeName
-        } else {
+        } else if score >= 290 {
             return Constants.diamondBadgeName
+        } else {
+            return ""
         }
     }
 }
