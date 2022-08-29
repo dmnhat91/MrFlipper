@@ -12,7 +12,7 @@ struct CardView: View {
     
     var body: some View {
         
-        Image(card.isFlipped ? card.imageName : "back")
+        Image(card.isFlipped ? card.imageName : "app-logo")
             .resizable()
             .frame(minWidth: 70, idealWidth: 100, maxWidth: 120, minHeight: 140, idealHeight: 200, maxHeight: 240)
             .scaledToFit()

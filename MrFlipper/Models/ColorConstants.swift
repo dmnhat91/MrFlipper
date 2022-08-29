@@ -12,4 +12,6 @@ struct ColorConstants {
     static let darkTextColorTheme = Color("RedDark")
     static let textColorTheme = Color("RedOrange")
     static let themeColor = Color("LightTheme")
+    
+    static let whiteBlackColor = Color("WhiteBlack")
 }

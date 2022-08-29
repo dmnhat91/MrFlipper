@@ -12,9 +12,9 @@ struct MenuItemView: View {
     
     var body: some View {
         RoundedRectangle(cornerRadius: 30)
-            .fill(.white)
+            .fill(ColorConstants.themeColor)
             .frame(height: 50)
-            .border(.black, width: 2)
+//            .border(ColorConstants.darkTextColorTheme, width: 2)
             .padding([.leading, .trailing])
             .padding([.top, .bottom], 5)
             .overlay(

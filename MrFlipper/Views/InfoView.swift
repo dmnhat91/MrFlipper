@@ -70,8 +70,8 @@ struct InfoView: View {
     }
 }
 
-//struct InfoView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        InfoView()
-//    }
-//}
+struct InfoView_Previews: PreviewProvider {
+    static var previews: some View {
+        InfoView()
+    }
+}

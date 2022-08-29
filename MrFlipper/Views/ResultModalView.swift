@@ -24,7 +24,7 @@ struct ResultModalView: View {
                 Text("\(displayText)")
                     .font(.system(.title, design: .rounded))
                     .fontWeight(.heavy)
-                    .foregroundColor(Color.white)
+                    .foregroundColor(ColorConstants.whiteBlackColor)
                     .padding()
                     .frame(minWidth: 280, idealWidth: 280, maxWidth: 320)
                     .background(ColorConstants.darkTextColorTheme)
