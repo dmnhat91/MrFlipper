@@ -1,9 +1,14 @@
-//
-//  MrFlipperApp.swift
-//  MrFlipper
-//
-//  Created by Duong Minh Nhat on 23/08/2022.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2022B
+  Assessment: Assignment 2
+  Author: Duong Minh Nhat
+  ID: s3715125
+  Created  date: 27/08/2022
+  Last modified: 29/08/2022
+  Acknowledgement: None
+*/
 
 import SwiftUI
 
@@ -12,12 +17,6 @@ struct MrFlipperApp: App {
     var body: some Scene {
         WindowGroup {
 //            ContentView()
-            
-//            let gameConfig = GameConfig(cards: gameCards)
-//            GameView(gameConfig: gameConfig)
-//            let playConfig = PlayConfig(timeRemaining: Constants.totalTime)
-//            GameView(totalTime: Constants.totalTime, playConfig: playConfig)
-            
             UserView()
         }
     }

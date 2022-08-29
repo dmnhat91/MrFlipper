@@ -1,9 +1,17 @@
-//
-//  GameView.swift
-//  MrFlipper
-//
-//  Created by Duong Minh Nhat on 27/08/2022.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2022B
+  Assessment: Assignment 2
+  Author: Duong Minh Nhat
+  ID: s3715125
+  Created  date: 27/08/2022
+  Last modified: 29/08/2022
+  Acknowledgement:
+    - Timer: https://www.hackingwithswift.com/quick-start/swiftui/how-to-use-a-timer-with-swiftui
+    - Youtube tutorials
+    - Data essentials: https://developer.apple.com/videos/play/wwdc2020/10040/?time=929
+*/
 
 import SwiftUI
 
