@@ -15,6 +15,7 @@ struct GameView: View {
     
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State var isLoseMusicPlay = false
     
     private var columns: [GridItem] {
             return [
@@ -95,6 +96,9 @@ struct GameView: View {
                 ResultModalView(displayText: "YOU WON", isWin: true, totalTime: totalTime, playConfig: $playConfig, gameConfig: $gameConfig)
             } else if playConfig.showLoseModal {
                 ResultModalView(displayText: "YOU LOST. TIME'S UP!!", isWin: false, totalTime: totalTime, playConfig: $playConfig, gameConfig: $gameConfig)
+                    .onDisappear(perform: {
+                        isLoseMusicPlay = false
+                    })
             }
             
         } //end main ZStack
@@ -245,7 +249,10 @@ struct GameView: View {
     
     //MARK: - LOSE ACTION
     func performLoseAction() {
-        playSound(sound: "game-lose-music", type: "mp3")
+        if !isLoseMusicPlay {
+            playSound(sound: "game-lose-music", type: "mp3")
+            isLoseMusicPlay = true
+        }
         
         playConfig.showLoseModal = true
     }
