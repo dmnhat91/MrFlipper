@@ -102,6 +102,10 @@ struct GameView: View {
             }
             
         } //end main ZStack
+        .onAppear(perform: {
+            // randomize the cards within the array
+            gameConfig.cards.shuffle()
+        })
     }
     
     //MARK: - FLIP FUNCTION

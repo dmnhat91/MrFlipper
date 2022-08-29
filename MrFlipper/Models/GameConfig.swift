@@ -25,5 +25,8 @@ struct GameConfig {
             cards[i].rotation = 0
             cards[i].opacity = 1
         }
+        
+        // randomize the cards within the array
+        cards.shuffle()
     }
 }
