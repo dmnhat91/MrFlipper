@@ -27,7 +27,7 @@ struct LeaderboardItemView: View {
                         .padding(.leading, 10)
                         .clipped()
                     Spacer()
-                    Text("Badge: ")
+                    Text("Badge \(imageName): ")
                         .foregroundColor(ColorConstants.darkTextColorTheme)
                         .bold()
                     if imageName == "" {
@@ -40,6 +40,7 @@ struct LeaderboardItemView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(height: 50)
+                            .padding(.trailing, 5)
                     }
                  }
             )
@@ -50,7 +51,10 @@ struct LeaderboardItemView_Previews: PreviewProvider {
     static var previews: some View {
         LeaderboardItemView(username: "dmnhat", score: 120, imageName: "bronze")
             .previewLayout(.sizeThatFits)
-        LeaderboardItemView(username: "hawky99", score: 120, imageName: "")
+        LeaderboardItemView(username: "hawky99", score: 120, imageName: "diamond")
             .previewLayout(.sizeThatFits)
+        
+    LeaderboardItemView(username: "hawky99", score: 120, imageName: "")
+        .previewLayout(.sizeThatFits)
     }
 }
