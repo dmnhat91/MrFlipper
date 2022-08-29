@@ -21,11 +21,13 @@ struct LeaderboardItemView: View {
             .padding([.top, .bottom], 5)
             .overlay(
                 HStack {
-                    Text("User: \(username) - \(score) pnts")
+                    Text("User: \(username)\nScore: \(score) pnts")
                         .foregroundColor(ColorConstants.darkTextColorTheme)
                         .bold()
                         .padding(.leading, 10)
                         .clipped()
+                        .multilineTextAlignment(.center)
+                    
                     Spacer()
                     Text("Badge \(imageName): ")
                         .foregroundColor(ColorConstants.darkTextColorTheme)
@@ -49,7 +51,7 @@ struct LeaderboardItemView: View {
 
 struct LeaderboardItemView_Previews: PreviewProvider {
     static var previews: some View {
-        LeaderboardItemView(username: "dmnhat", score: 120, imageName: "bronze")
+        LeaderboardItemView(username: "minhnhat", score: 70, imageName: "bronze")
             .previewLayout(.sizeThatFits)
         LeaderboardItemView(username: "hawky99", score: 120, imageName: "diamond")
             .previewLayout(.sizeThatFits)
