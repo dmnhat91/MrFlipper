@@ -252,6 +252,8 @@ struct GameView: View {
         if !isLoseMusicPlay {
             playSound(sound: "game-lose-music", type: "mp3")
             isLoseMusicPlay = true
+            
+            updateUserResult()
         }
         
         playConfig.showLoseModal = true

@@ -8,19 +8,20 @@
 import SwiftUI
 
 struct LeaderboardView: View {
+//    @Environment(\.dismiss) var dismiss
     
-    var usersList: [User] = []
+    @State var usersList: [User] = []
     
-    init() {
-        let usersData = getUserDict()
-        for (_, value) in usersData {
-            usersList.append(value)
-        }
-        
-        usersList = usersList.sorted(by: {
-            $0.highScore > $1.highScore
-        })
-    }
+//    init() {
+//        let usersData = getUserDict()
+//        for (_, value) in usersData {
+//            usersList.append(value)
+//        }
+//
+//        usersList = usersList.sorted(by: {
+//            $0.highScore > $1.highScore
+//        })
+//    }
     
     var body: some View {
         ZStack{
@@ -42,11 +43,27 @@ struct LeaderboardView: View {
                     List(usersList) {
                         LeaderboardItemView(username: $0.username, score: $0.highScore, imageName: $0.badge)
                     }
+                    .onAppear(perform: {
+                        usersList = loadUsersList()
+                    })
                 }
                     
             } //end VStack
             
         } //end ZStack
+//        .overlay(
+//            Button(action: {
+//            audioPlayer?.stop()
+//            dismiss()
+//          }) {
+//            Image(systemName: "xmark.circle")
+//              .font(.title)
+//          }
+//            .foregroundColor(ColorConstants.darkTextColorTheme)
+//            .padding(.top, 30)
+//            .padding(.trailing, 20),
+//            alignment: .topTrailing
+//        )
     }
     
     func loadUsersList() -> [User] {
@@ -55,6 +72,11 @@ struct LeaderboardView: View {
         for (_, value) in usersData {
             users.append(value)
         }
+        
+        users = users.sorted(by: {
+            $0.highScore > $1.highScore
+        })
+        
         return users
     }
 }
