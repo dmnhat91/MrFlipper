@@ -56,8 +56,7 @@ struct MenuView: View {
                         }
                         
                         NavigationLink {
-                            // ???: to config game config here
-                            // ???: switch to how to play screen
+                            InfoView()
                         } label: {
                             MenuItemView(text: "How to play")
                         }
@@ -86,9 +85,9 @@ struct MenuView: View {
     }
 }
 
-struct MenuView_Previews: PreviewProvider {
-    static var previews: some View {
-        MenuView(userName: "minhnhat")
-    }
-}
+//struct MenuView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MenuView(userName: "minhnhat")
+//    }
+//}
     
